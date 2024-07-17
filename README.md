@@ -14,6 +14,7 @@ Project used to practice MSA with many differentes languages/framework/technolog
   - [ ] Spring Boot
   - [ ] .NET
   - [ ] Nextjs
+  - [ ] Reactjs
 - Technologies
   - Databases
     - [ ] EventStoreDB
