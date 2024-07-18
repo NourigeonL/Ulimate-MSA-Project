@@ -52,5 +52,5 @@ Project used to practice MSA with many differentes languages/framework/technolog
       pip install -r requirements.txt
       django-admin startproject backend
       cd .\backend\
-      python .\manage.py startapp api
+      python .\manage.py startapp blog
       ```
