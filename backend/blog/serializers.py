@@ -4,5 +4,4 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ['id', 'title', 'content', 'created_at', 'updated_at', "author"]
-        extra_kwargs = {"author": {"read_only":True}}
+        fields = ['id', 'title', 'content', 'created_at', 'updated_at']

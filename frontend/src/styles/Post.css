@@ -1,0 +1,19 @@
+.post-container {
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .post-title {
+    color: #333;
+  }
+  
+  .post-content {
+    color: #666;
+  }
+  
+  .post-date {
+    color: #999;
+    font-size: 0.8rem;
+  }
