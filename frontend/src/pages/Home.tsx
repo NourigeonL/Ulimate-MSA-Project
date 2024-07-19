@@ -14,7 +14,7 @@ function Home(){
     const getPost = () =>{
         setLoading(true);
         api
-        .get("/api/posts/")
+        .get("/api/blog/posts/")
         .then((res) => res.data)
         .then((data) => {setPosts(data); console.log(data); setLoading(false)})
         .catch((err) => alert(err));
