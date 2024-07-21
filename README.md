@@ -42,15 +42,19 @@ Project used to practice MSA with many differentes languages/framework/technolog
     npm install @types/react @types/react-dom
     npx create-react-app frontend --template typescript
     ```
-- [ ] Create personal blog to use as a logbook
-  - [ ] Implement the backend
-    - [ ] Create backend boilerplat 
-      - Using Django Rest Framework
-      ```shell
-      python -m venv venv
-      .\venv\Scripts\activate
-      pip install -r requirements.txt
-      django-admin startproject backend
-      cd .\backend\
-      python .\manage.py startapp blog
-      ```
+- [ ] Create API Gateway boilerplate
+  - Using [express gateway](https://www.express-gateway.io/)
+  ```shell
+  npm install -g express-gateway
+  ``` 
+  ```
+  eg gateway create
+  ```
+  ```
+  ➜ eg gateway create
+  ? What is the name of your Express Gateway? api-gateway
+  ? Where would you like to install your Express Gateway? api-gateway
+  ? What type of Express Gateway do you want to create? (Use arrow keys)
+  ❯ Getting Started with Express Gateway
+    Basic (default pipeline with proxy)
+  ```
