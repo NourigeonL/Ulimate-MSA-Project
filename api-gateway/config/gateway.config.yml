@@ -6,10 +6,18 @@ admin:
 apiEndpoints:
   api:
     host: localhost
-    paths: '/ip'
+    paths: 
+      - '/ip'
+  riotapi:
+    host: localhost
+    paths:
+      - '/lol/*'
+
 serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
+  riotapi:
+    url: https://kr.api.riotgames.com
 policies:
   - basic-auth
   - cors
@@ -25,8 +33,19 @@ pipelines:
       - api
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      - key-auth:
       - proxy:
-          - action:
-              serviceEndpoint: httpbin 
-              changeOrigin: true
+        - action:
+            serviceEndpoint: httpbin 
+            changeOrigin: true
+
+  riot_pipeline:
+    apiEndpoints:
+      - riotapi
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      #- key-auth:
+      - proxy:
+        - action:
+            serviceEndpoint: riotapi 
+            changeOrigin: true
