@@ -12,12 +12,18 @@ apiEndpoints:
     host: localhost
     paths:
       - '/lol/*'
+  testapi:
+    host: localhost
+    paths:
+      - '/test/*'
 
 serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
   riotapi:
     url: https://kr.api.riotgames.com
+  testapi:
+    url: http://localhost:8001
 policies:
   - basic-auth
   - cors
@@ -48,4 +54,12 @@ pipelines:
       - proxy:
         - action:
             serviceEndpoint: riotapi 
+            changeOrigin: true
+  testapi_pipepline:
+    apiEndpoints:
+      - testapi
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: testapi 
             changeOrigin: true
