@@ -17,5 +17,6 @@ async def read_request(request: Request):
         "headers": request.headers,
         "receive":request.receive,
         "query_params": request.query_params,
-        "body": body
+        "body": body,
+        #"user": request.user
     }

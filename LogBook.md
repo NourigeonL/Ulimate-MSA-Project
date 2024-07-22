@@ -14,3 +14,7 @@ I think I will probably start by developing a common application often used as a
 
 ## 2024/07/19
 I think I'm gonna build like a forum similar to Reddit, where people can created topics, create posts in it an interact with comments, like, reports, etc.
+
+## 2024/07/22
+I implemented an API Gateway with [express gateway](https://www.express-gateway.io/) so now I can have a single entrypoint to communicate with the frontend.
+I'm reading a lot of article about how to implement well authentication and authorization(like [this](https://www.osohq.com/blog/microservices-authorization-patterns), [this](https://dev.to/behalf/authentication-authorization-in-microservices-architecture-part-i-2cn0), ), and I found many solutions so I'm quite confused about how to implement it ^^

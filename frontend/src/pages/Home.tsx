@@ -8,7 +8,7 @@ function Home(){
     const [posts, setPosts] = useState<Array<Post>>([])
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        getPost();
+        //getPost();
     }, [])
     
     const getPost = () =>{

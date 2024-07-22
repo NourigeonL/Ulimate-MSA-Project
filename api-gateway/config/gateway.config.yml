@@ -5,25 +5,31 @@ admin:
   host: localhost
 apiEndpoints:
   api:
-    host: localhost
+    host: '*'
     paths: 
       - '/ip'
   riotapi:
-    host: localhost
+    host: '*'
     paths:
       - '/lol/*'
   testapi:
-    host: localhost
+    host: '*'
     paths:
       - '/test/*'
+  authapi:
+    host: '*'
+    paths:
+      - '/auth/*'
 
 serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
   riotapi:
     url: https://kr.api.riotgames.com
-  testapi:
+  testservice:
     url: http://localhost:8001
+  authservice:
+    url: http://localhost:8002
 policies:
   - basic-auth
   - cors
@@ -33,6 +39,8 @@ policies:
   - oauth2
   - proxy
   - rate-limit
+  - jwt
+  - request-transformer
 pipelines:
   default:
     apiEndpoints:
@@ -59,7 +67,34 @@ pipelines:
     apiEndpoints:
       - testapi
     policies:
+      #- key-auth:
+      -
+        jwt:
+          action:
+            secretOrPublicKeyFile: ../public.pem
+            secretOrPrivateKeyFile: ../private.pem
+            checkCredentialExistence: false
+      -
+        request-transformer:
+          action:
+            body:
+              add:
+                user: req.user
       - proxy:
         - action:
-            serviceEndpoint: testapi 
+            serviceEndpoint: testservice 
+            changeOrigin: true
+  auth_pipeline:
+    apiEndpoints:
+      - authapi
+    policies:
+      - cors:
+        - action:
+            origin: "*"
+            methods: '*'
+            credentials: true
+          
+      - proxy:
+        - action:
+            serviceEndpoint: authservice 
             changeOrigin: true
